@@ -1,18 +1,16 @@
 #include <Arduino.h>
+#include "SensorReading.h"
 
-// put function declarations here:
-int myFunction(int, int);
+#define BAUD_RATE 115200
 
-void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+void setup() 
+{
+  Serial.begin(BAUD_RATE);
+  while(!Serial){;}
+  Serial.printf("Serial monitor running at %d", BAUD_RATE);
+  if(Initialize())
+    printf("Error initializing Sensor!");
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
 }
